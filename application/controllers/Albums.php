@@ -70,7 +70,6 @@ class Albums extends CI_Controller {
 
                 }*/
 
-                echo "dgdfgfd";
 
                 $this->load->view('albums', $data); // passing data into the view
 

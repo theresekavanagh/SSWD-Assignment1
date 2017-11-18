@@ -76,3 +76,19 @@ foreach ($album as $album_item) {
 }
 
 ?>
+
+-----------------------------------
+application/views/albums.php - UPDATED TO OUTPUT JSON}
+-----------------------------------
+
+<?php
+
+
+//string json_encode ( $album );
+
+/* Source: https://stackoverflow.com/questions/41626263/codeigniter-php-convert-object-to-json */
+
+$json = json_encode($album,JSON_FORCE_OBJECT);
+echo $json;
+
+?>
