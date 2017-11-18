@@ -19,6 +19,10 @@ class Tracks_model extends CI_Model {
 
 		         }*/
 
+		         /***********************
+		         Wonder if I can join the tables here??
+		         ***********************/
+
 		         $query = $this->db->get_where('track', array('album_id' => $id)); // get data from the table 'album' that matches the id passed in 
 		         //$result = $query->row_array();
 		         $result = $query->result_array();

@@ -39,10 +39,10 @@ class Tracks extends CI_Controller {
 
                 $data['album_title'] = $this->tracks_model->get_albuminfo($id);
 
-                /*if (empty($data['track_list']))
+                if (empty($data['track_list']))
                 {
                         show_404();
-                }*/
+                }
                 //$data = $this->tracks_model->get_tracks($id);
 
                 //var_dump($data);
