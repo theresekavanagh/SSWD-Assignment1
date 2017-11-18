@@ -1,0 +1,78 @@
+Should I make these file names & functions singular?
+
+-----------------------------------
+application/models/Albums_model.php
+-----------------------------------
+
+<?php
+
+class Albums_model extends CI_Model {
+
+
+        public function __construct()
+        {
+                $this->load->database();
+        }
+
+		public function get_albums()
+		{
+		         $query = $this->db->get('album'); // get data from the table 'album'
+		         $result = $query->result_array();
+		         return $result;
+		}
+
+}
+
+?>
+
+
+-----------------------------------
+application/controllers/Albums.php
+-----------------------------------
+
+<?php
+
+class Albums extends CI_Controller {
+
+
+        public function __construct()
+        {
+                parent::__construct();
+
+                $this->load->model('albums_model');
+                
+                //$this->load->helper('url_helper');
+        }
+
+
+        public function index() // create the main method to get albums from the db using the model's get_albums() method and pass the results to the view
+        {
+                
+
+                $data['album'] = $this->albums_model->get_albums();
+
+                //var_dump($data);
+
+                $this->load->view('albums', $data); // passing data into the view
+
+        }
+
+}
+
+?>
+
+-----------------------------------
+application/views/albums.php
+-----------------------------------
+
+<?php
+echo "Albums";
+
+
+foreach ($album as $album_item) {
+
+	echo $album_item['artist_name'] . "<br>";
+	echo $album_item['album_name'] . "<br><br>";
+}
+
+?>
