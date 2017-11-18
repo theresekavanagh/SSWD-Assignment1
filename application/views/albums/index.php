@@ -1,7 +1,7 @@
 <?php
 
 /******************
-Display albums info based on id parameter passed in the url
+Display list of all albums in the database
 *******************/
 
 echo "<h1>Album List</h1>";

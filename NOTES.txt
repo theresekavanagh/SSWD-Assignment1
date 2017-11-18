@@ -283,8 +283,9 @@ http://localhost/webelevate/sswd/Assignment1/index.php/albums/
 
 <?php
 
+
 /******************
-Display albums info based on id parameter passed in the url
+Display list of albums in the database
 *******************/
 
 echo "<h1>Album List</h1>";
@@ -312,8 +313,9 @@ http://localhost/webelevate/sswd/Assignment1/index.php/albums/view/1
 <?php
 
 /******************
-Display list of albums in the database
+Display album's info based on id parameter passed in the url
 *******************/
+
 
 	$albumInfo = $album_id . "," . $artist_name . "," . $album_name;
 
