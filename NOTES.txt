@@ -1,5 +1,6 @@
 Should I make these file names & functions singular?
 
+VERSION 1
 -----------------------------------
 application/models/Albums_model.php
 -----------------------------------
@@ -90,5 +91,239 @@ application/views/albums.php - UPDATED TO OUTPUT JSON}
 
 $json = json_encode($album,JSON_FORCE_OBJECT);
 echo $json;
+
+?>
+
+----------------------------------------------------------------------
+**********************************************************************
+----------------------------------------------------------------------
+
+VERSION 2 - output selected album based on parameter
+
+-----------------------------------
+application/models/Albums_model.php
+-----------------------------------
+
+<?php
+class Albums_model extends CI_Model {
+
+        public function __construct()
+        {
+                $this->load->database();
+        }
+
+		public function get_albums($id)
+		{
+		         
+				if($id != FALSE) {
+
+		         $query = $this->db->get_where('album', array('album_id' => $id)); // get data from the table 'album'
+		         $result = $query->row_array();
+		         return $result;
+
+		     } 
+
+		     else{
+
+		     	echo "something went wrong!";
+		     	return FALSE;
+		     }
+		}
+
+}
+
+
+?>
+
+-----------------------------------
+application/controllers/Albums.php
+-----------------------------------
+
+<?php
+class Albums extends CI_Controller {
+
+        public function __construct()
+        {
+                parent::__construct();
+
+                $this->load->model('albums_model');
+                
+        }
+
+
+        public function index() // create the main method to get albums from the db using the model's get_albums() method and pass the results to the view
+        {
+                
+
+                $data['album'] = $this->albums_model->get_albums();
+
+                $this->load->view('albums', $data); // passing data into the view
+        }
+
+        public function show($id) {
+                $this->load->model('albums_model');
+                $data = $this->albums_model->get_albums($id);
+
+                //$data = $albums;
+
+                //$artistName = $data['artist_name'];
+                //$albumName = $data['album_name'];
+
+                $this->load->view('albums', $data);
+        }
+
+}
+
+?>
+-----------------------------------
+application/views/albums.php
+-----------------------------------
+
+
+<?php
+
+	$albumInfo = $album_id . "," . $artist_name . "," . $album_name;
+
+	$json = json_encode($albumInfo);
+	echo $json;
+
+?>
+
+
+----------------------------------------------------------------------
+**********************************************************************
+----------------------------------------------------------------------
+
+VERSION 3 - output selected album based on parameter or list of all albums
+
+-----------------------------------
+application/models/Albums_model.php
+-----------------------------------
+
+<?php
+
+class Albums_model extends CI_Model {
+
+        public function __construct()
+        {
+                $this->load->database();
+        }
+
+		public function get_albums($id = FALSE)
+		{
+		         
+				if($id === FALSE) 
+				{
+
+					$query = $this->db->get('album'); // get data from the table 'album'
+		         	$result = $query->result_array();
+		         	return $result;
+
+		         }
+
+		         $query = $this->db->get_where('album', array('album_id' => $id)); // get data from the table 'album' that matches the id passed in 
+		         $result = $query->row_array();
+		         return $result;
+
+		     } 
+
+}
+
+?>
+
+-----------------------------------
+application/controllers/Albums.php
+-----------------------------------
+
+<?php
+
+class Albums extends CI_Controller {
+
+        public function __construct()
+        {
+                parent::__construct();
+
+                $this->load->model('albums_model');
+                
+                //$this->load->helper('url_helper');
+        }
+
+
+        public function index() // create the main method to get albums from the db using the model's get_albums() method and pass the results to the view
+        {
+
+                $data['album'] = $this->albums_model->get_albums();
+
+                $this->load->view('albums/index', $data); // passing data into the view
+
+        }
+
+        public function view($id = NULL) {
+                //$this->load->model('albums_model');
+
+                $data['album_item'] = $this->albums_model->get_albums($id);
+
+                if (empty($data['album_item']))
+                {
+                        show_404();
+                }
+                $data = $this->albums_model->get_albums($id);
+
+                $this->load->view('albums/album', $data);
+        }
+
+}
+
+?>
+
+-----------------------------------
+application/views/albums/index.php
+-----------------------------------
+http://localhost/webelevate/sswd/Assignment1/index.php/albums/
+
+<?php
+
+/******************
+Display albums info based on id parameter passed in the url
+*******************/
+
+echo "<h1>Album List</h1>";
+
+foreach ($album as $album_item) {
+
+	echo "<strong>".$album_item['artist_name'] . "</strong><br>";
+	echo $album_item['album_name'] . "<br><br>";
+}
+
+/* Source: https://stackoverflow.com/questions/41626263/codeigniter-php-convert-object-to-json */
+//$json = json_encode($album,JSON_FORCE_OBJECT);
+//echo $json;
+
+?>
+
+
+
+-----------------------------------
+application/views/albums/album.php
+-----------------------------------
+
+http://localhost/webelevate/sswd/Assignment1/index.php/albums/view/1
+
+<?php
+
+/******************
+Display list of albums in the database
+*******************/
+
+	$albumInfo = $album_id . "," . $artist_name . "," . $album_name;
+
+	echo $albumInfo;
+
+	//$json = json_encode($albumInfo);
+	//echo $json;
+
+/* Source: https://stackoverflow.com/questions/41626263/codeigniter-php-convert-object-to-json */
+//$json = json_encode($album,JSON_FORCE_OBJECT);
+//echo $json;
 
 ?>

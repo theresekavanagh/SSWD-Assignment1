@@ -1,37 +1,30 @@
 <?php
-class Albums_model extends CI_Model {
 
-		//var $album_title='';
-        //var $arist_id='';
-        //var $arist_name='';
+class Albums_model extends CI_Model {
 
         public function __construct()
         {
                 $this->load->database();
         }
 
-        /*public function get_albums($artist_id = FALSE)
+		public function get_albums($id = FALSE)
 		{
-		        if ($artist_id === FALSE)
-		        {
-		                $query = $this->db->get('albums');
-		                return $query->result_array();
-		        }
+		         
+				if($id === FALSE) 
+				{
 
-		        $query = $this->db->get_where('album', array('artist_id' => $artist_id));
-		        return $query->row_array();
-		}
+					$query = $this->db->get('album'); // get data from the table 'album'
+		         	$result = $query->result_array();
+		         	return $result;
 
-		*/
+		         }
 
-		public function get_albums()
-		{
-		         $query = $this->db->get('album'); // get data from the table 'album'
-		         $result = $query->result_array();
+		         $query = $this->db->get_where('album', array('album_id' => $id)); // get data from the table 'album' that matches the id passed in 
+		         $result = $query->row_array();
 		         return $result;
-		}
+
+		     } 
 
 }
-
 
 ?>
