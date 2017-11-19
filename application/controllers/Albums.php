@@ -1,6 +1,26 @@
 <?php
 
+/**
+ * Albums.php
+ *
+ * Controller to load the albums_model and run the methods within that model and pass the data returned to the view.
+ *
+ * PHP version 5
+ *
+ *
+ * @category   WebElevate 5.1
+ * @package    SSWD Assessment 1 - PHP Web App (19th Nov 2017)
+ * @author     Therese Kavanagh <therese.kavanagh@webelevate.ie>
+ * @copyright  2017 Therese Kavanagh
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    Version 1.0
+ */
+
 class Albums extends CI_Controller {
+
+        /**
+         * constructor to load the albums_model
+         */
 
         public function __construct()
         {
@@ -8,11 +28,14 @@ class Albums extends CI_Controller {
 
                 $this->load->model('albums_model');
                 
-                //$this->load->helper('url_helper');
         }
 
 
-        public function index() // create the main method to get albums from the db using the model's get_albums() method and pass the results to the view
+        /**
+         * default method to get list of albums from the db using the model's getAlbums() method and pass the results to the view 
+         */
+
+        public function index() 
         {
 
                 $data['album'] = $this->albums_model->get_albums();
@@ -21,15 +44,24 @@ class Albums extends CI_Controller {
 
         }
 
+        /**
+         * view method to get the matching album from the db based on the album_id passed in the url as $id passed in the url & using the model's getAlbums() method and pass the results to the view 
+         */
+
         public function view($id = NULL) {
                 //$this->load->model('albums_model');
 
                 $data['album_item'] = $this->albums_model->get_albums($id);
 
+                /*
+                 * if no id is passed in the url then show the 404 error page 
+                 */
+
                 if (empty($data['album_item']))
                 {
                         show_404();
                 }
+
                 $data = $this->albums_model->get_albums($id);
 
                 $this->load->view('albums/album', $data);

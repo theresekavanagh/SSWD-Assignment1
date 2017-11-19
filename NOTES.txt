@@ -329,3 +329,13 @@ Display album's info based on id parameter passed in the url
 //echo $json;
 
 ?>
+
+
+FINAL VERSION
+
+config/routes.php
+
+$route['albums/(:any)'] = 'Albums/view/$1';
+$route['albums/'] = 'Albums/index';
+
+$route['tracks/(:any)'] = 'Tracks/view/$1';

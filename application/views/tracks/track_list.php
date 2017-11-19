@@ -1,8 +1,21 @@
 <?php
 
-/******************
-Display list of tracks matching the album id in 'track' table the database plus the album title and artist name from the 'album' table
-*******************/
+/**
+ * track_list.php
+ *
+ * View to display list of tracks and album name for an album in the database based on album_id parameter passed in the url as $id and return as json data
+ *
+ * PHP version 5
+ *
+ *
+ * @category   WebElevate 5.1
+ * @package    SSWD Assessment 1 - PHP Web App (19th Nov 2017)
+ * @author     Therese Kavanagh <therese.kavanagh@webelevate.ie>
+ * @copyright  2017 Therese Kavanagh
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    Version 1.0
+ */
+
 
 	/*$trackInfo = $album_id . "," . $track_id . "," . $track_name;
 
@@ -24,6 +37,10 @@ foreach ($track_list as $track) {
 	//echo $track['album_name'] . "<br><br>";
 
 }
+
+	/**
+	 * json encode the returned data
+	 */
 
 /* Source: https://stackoverflow.com/questions/41626263/codeigniter-php-convert-object-to-json */
 //$json = json_encode($album,JSON_FORCE_OBJECT);
