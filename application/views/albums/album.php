@@ -16,20 +16,16 @@
  * @version    Version 1.0
  */
 
-
+	// build the string
 	$albumInfo = $album_id . "," . $artist_name . "," . $album_name;
 
-	echo $albumInfo;
+	/*echo $albumInfo; // testing the output - leaving this in for my own future reference */
 
 	/**
 	 * json encode the returned data
 	 */
 
-	//$json = json_encode($albumInfo);
-	//echo $json;
-
-/* Source: https://stackoverflow.com/questions/41626263/codeigniter-php-convert-object-to-json */
-//$json = json_encode($album,JSON_FORCE_OBJECT);
-//echo $json;
+	$json = json_encode($albumInfo);
+	echo $json;
 
 ?>

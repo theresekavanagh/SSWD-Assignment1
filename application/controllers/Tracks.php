@@ -37,42 +37,24 @@ class Tracks extends CI_Controller {
         public function index($id = NULL)
         {
 
-                //$data['tracks'] = $this->tracks_model->getTracks();
-
-                //$data['album_title'] = $this->tracks_model->getAlbumInfo();
-
-                if (empty($data['track_list']))
-                {
-                        show_404();
-                }
-
-                $this->load->view('tracks/track_list', $data);
-                //$data['track'] = $this->tracks_model->get_tracks();
-
-                //$this->load->view('tracks/index', $data); // passing data into the view
-
-                /*$data['track_list'] = $this->tracks_model->get_tracks($id);
+                /*
+                 * if no id is passed in the url then show the 404 error page 
+                 */
 
                 if (empty($data['track_list']))
                 {
                         show_404();
                 }
-                $data = $this->tracks_model->get_tracks($id);
-
-                var_dump($data);
-
-                $this->load->view('tracks/track_listing', $data);*/
 
         }
 
         /**
-         * view method to get the matching tracks and album name from the db based on the album_id passed in the url as $id using the model's getTracks() and getAlbumInfo() methods and pass the results to the view 
+         * view method to get the matching tracks from the db based on the album_id passed in the url as $id using the model's getTracks() method and pass the results to the view 
          */
 
         public function view($id = NULL) {
                 
                 $data['track_list'] = $this->tracks_model->get_tracks($id);
-                $data['album_title'] = $this->tracks_model->get_album_info($id);
 
                 /*
                  * if no id is passed in the url then show the 404 error page 
@@ -81,9 +63,6 @@ class Tracks extends CI_Controller {
                 {
                         show_404();
                 }
-                //$data = $this->tracks_model->get_tracks($id);
-
-                //var_dump($data);
 
                 $this->load->view('tracks/track_list', $data);
         }

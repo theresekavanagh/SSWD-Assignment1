@@ -16,6 +16,7 @@ WEBSITES USED FOR REFERENCE:
 https://codeigniter.com/user_guide/tutorial/news_section.html
 https://www.hostinger.com/tutorials/codeigniter-tutorial#Step-4-8211-Creating-Simple-App-with-CodeIgniter
 https://www.codeigniter.com/userguide3/general/urls.html
+http://php.net/manual/en/function.json-encode.php
 
 ---------------------------------------------------
 PEAR STANDARDS AND CODEIGNITER NAMING CONVENTIONS
