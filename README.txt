@@ -44,19 +44,16 @@ https://stackoverflow.com/questions/19183311/codeigniter-removing-index-php-from
 ***************************************************
 
 ---------------------------------------------------
-DATABASE
+DATABASE & SQL SETUP FILE
 ---------------------------------------------------
 sswd_assignment1.sql (in root of folder)
+SQL Setup File: sql-setup.txt (in root of folder)
 
 ---------------------------------------------------
 CORE CI FILES UPDATED
 ---------------------------------------------------
 config/database.php - updated db settings
 config/routes.php - added routes to clean up the urls
-
-http://localhost/webelevate/sswd/Assignment1/albums/view/1 --> http://localhost/webelevate/sswd/Assignment1/albums/1
-
-http://localhost/webelevate/sswd/Assignment1/tracks/view/1 --> http://localhost/webelevate/sswd/Assignment1/tracks/1
 
 ---------------------------------------------------
 FILES CREATED
@@ -79,9 +76,15 @@ application/views/tracks/track_list.php
 ENPOINTS
 ---------------------------------------------------
 
-http://localhost/webelevate/sswd/Assignment1/albums/
+Base url: http://localhost/webelevate/sswd/WE5.1_SSWD_A1_Therese_Kavanagh/ (update to reflect your own htdocs file structure)
 
-http://localhost/webelevate/sswd/Assignment1/albums/1, http://localhost/webelevate/sswd/Assignment1/albums/2 etc
+http://localhost/webelevate/sswd/WE5.1_SSWD_A1_Therese_Kavanagh/albums/
 
-http://localhost/webelevate/sswd/Assignment1/tracks/1, http://localhost/webelevate/sswd/Assignment1/tracks/2 etc
+http://localhost/webelevate/sswd/WE5.1_SSWD_A1_Therese_Kavanagh/albums/1, http://localhost/webelevate/sswd/WE5.1_SSWD_A1_Therese_Kavanagh/albums/2 etc
+
+http://localhost/webelevate/sswd/WE5.1_SSWD_A1_Therese_Kavanagh/tracks/1, http://localhost/webelevate/sswd/WE5.1_SSWD_A1_Therese_Kavanagh/tracks/2 etc
+
+---------------------------------------------------
+JSON output validated on https://jsonlint.com/
+---------------------------------------------------
 

@@ -1,4 +1,6 @@
-sswd_assignment1
+DROP DATABASE IF EXISTS sswd_assignment1;
+CREATE DATABASE sswd_assignment1;
+USE sswd_assignment1;
 
 
 CREATE TABLE album (
