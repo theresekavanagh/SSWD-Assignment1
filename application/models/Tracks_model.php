@@ -3,7 +3,7 @@
 /**
  * Tracks_model.php
  *
- * Get a list of tracks in the track table in the database for a given album id passed as a parameter in the url.
+ * Get a list of tracks in the 'track' table in the database for a given id (album_id) passed as a parameter in the url.
  *
  * PHP version 5
  *
@@ -14,6 +14,10 @@
  * @copyright  2017 Therese Kavanagh
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    Version 1.0
+ */
+
+/**
+ * Tracks_model Class
  */
 
 class Tracks_model extends CI_Model {
@@ -28,31 +32,14 @@ class Tracks_model extends CI_Model {
     }
 
     /**
-	 * Method to query the database and return list of matching tracks from the 'track' table based on the id passed in the url
+	 * Method to query the database and return list of matching tracks from the 'track' table based on the id (album_id) passed in the url
 	 */
 
 	public function get_tracks($id = FALSE)
 	{
-	         
-		if($id === FALSE) 
-		{
-
-			/**
-			* Not sure if I should delete this bit
-			*/
-
-
-			/*
-			* Retrieve the track name(s) from the 'track' table based on the track id passed in the url 
-			*/
-			$query = $this->db->get('track');
-         	$result = $query->result_array();
-         	return $result;
-
-         }
 
         /*
-		* Query the database and retrieve the record where the album_id in the track table matches the id passed in the url. Return the data.
+		* Query the database and retrieve the record where the 'album_id' in the 'track' table matches the id passed in the url. Return the data.
 		*/
 
          $query = $this->db->get_where('track', array('album_id' => $id)); 

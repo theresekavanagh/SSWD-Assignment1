@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2017 at 12:28 AM
+-- Generation Time: Nov 20, 2017 at 09:11 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `sswd_assignment1`
+-- Database: `music`
 --
+CREATE DATABASE IF NOT EXISTS `music` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `music`;
 
 -- --------------------------------------------------------
 

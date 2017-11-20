@@ -3,7 +3,7 @@
 /**
  * album.php
  *
- * View to display album info based on album_id parameter passed in the url as $id and return as json data
+ * View to display album info based on 'album_id' parameter passed in the url as $id and return as json data
  *
  * PHP version 5
  *
@@ -16,16 +16,17 @@
  * @version    Version 1.0
  */
 
-	// build the string
-	$albumInfo = $album_id . "," . $artist_name . "," . $album_name;
+// build the string from the columsn retrieved from the database to be encoded in json format below
+
+$albumInfo = $album_id . "," . $artist_name . "," . $album_name;
 
 	/*echo $albumInfo; // testing the output - leaving this in for my own future reference */
 
-	/**
-	 * json encode the returned data
-	 */
+/**
+ * json encode the returned data
+ */
 
-	$json = json_encode($albumInfo);
-	echo $json;
+$json = json_encode($albumInfo);
+echo $json;
 
 ?>

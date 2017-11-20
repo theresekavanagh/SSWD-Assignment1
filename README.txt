@@ -11,7 +11,7 @@ O'Reilly's Learning MySQL Book (http://tahaghoghi.com/LearningMySQL/downloads.ph
 https://resources.oreilly.com/examples/9780596008642/
 
 ---------------------------------------------------
-WEBSITES USED FOR REFERENCE:
+WEBSITES/TUTORIALS USED FOR REFERENCE:
 --------------------------------------------------- 
 https://codeigniter.com/user_guide/tutorial/news_section.html
 https://www.hostinger.com/tutorials/codeigniter-tutorial#Step-4-8211-Creating-Simple-App-with-CodeIgniter
@@ -23,20 +23,12 @@ PEAR STANDARDS AND CODEIGNITER NAMING CONVENTIONS
 ---------------------------------------------------
 https://www.codeigniter.com/user_guide/general/styleguide.html#file-naming
 https://pear.php.net/manual/en/standards.php
+(NOTE: Codeigniter requires specific naming conventions for method naming which contradicts the PEAR standard of using camelCase)
 
 ---------------------------------------------------
 SEO Friendly URLs (removing index.php from the url using .htaccess)
 ---------------------------------------------------
 https://stackoverflow.com/questions/19183311/codeigniter-removing-index-php-from-url
-
-	SQL Queries
-
-	SELECT album.album_name, artist.artist_name FROM album INNER JOIN artist ON album.artist_id=artist.artist_id
-
-	SELECT album.album_name, artist.artist_name, track.track_name 
-	FROM album 
-	INNER JOIN artist ON album.artist_id=artist.artist_id
-	INNER JOIN track ON album.artist_id=track.artist_id
 
 
 ***************************************************
@@ -46,7 +38,7 @@ https://stackoverflow.com/questions/19183311/codeigniter-removing-index-php-from
 ---------------------------------------------------
 DATABASE & SQL SETUP FILE
 ---------------------------------------------------
-sswd_assignment1.sql (in root of folder)
+music.sql (in root of folder)
 SQL Setup File: sql-setup.txt (in root of folder)
 
 ---------------------------------------------------

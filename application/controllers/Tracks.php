@@ -16,6 +16,10 @@
  * @version    Version 1.0
  */
 
+/**
+ * Tracks Class
+ */
+
 class Tracks extends CI_Controller {
 
         /**
@@ -31,7 +35,7 @@ class Tracks extends CI_Controller {
         }
 
         /**
-         * default method to show 404 error page if no album_id is passed in the url 
+         * default method to show 404 error page if no id (album_id) is passed in the url 
          */
 
         public function index($id = NULL)
@@ -49,7 +53,7 @@ class Tracks extends CI_Controller {
         }
 
         /**
-         * view method to get the matching tracks from the db based on the album_id passed in the url as $id using the model's getTracks() method and pass the results to the view 
+         * view method to get the matching tracks from the db based on the 'album_id' passed in the url as $id using the model's get_tracks() method and pass the results to the view 
          */
 
         public function view($id = NULL) {
@@ -59,6 +63,7 @@ class Tracks extends CI_Controller {
                 /*
                  * if no id is passed in the url then show the 404 error page 
                  */
+
                 if (empty($data['track_list']))
                 {
                         show_404();

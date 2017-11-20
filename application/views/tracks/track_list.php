@@ -3,7 +3,7 @@
 /**
  * track_list.php
  *
- * View to display list of tracks for an album in the database based on album_id parameter passed in the url as $id and return as json data
+ * View to display list of tracks for an album in the database based on 'album_id' parameter passed in the url as $id and return as json data
  *
  * PHP version 5
  *
@@ -17,23 +17,24 @@
  */
 
 
-/* Testing the output - leaving this in for my own future reference
+	/* Testing the output - leaving this in for my own future reference
 
-echo "<h1>" . $album_title['artist_name'] . " - " . $album_title['album_name'] . " (Album Track List)</h1>";
+	echo "<h1>" . $album_title['artist_name'] . " - " . $album_title['album_name'] . " (Album Track List)</h1>";
 
 
-foreach ($track_list as $track) {
+	foreach ($track_list as $track) {
 
-	echo $track['track_id'] . ": " .$track['track_name'] . "<br>";
-	//echo $track['album_name'] . "<br><br>";
+		echo $track['track_id'] . ": " .$track['track_name'] . "<br>";
+		//echo $track['album_name'] . "<br><br>";
 
-}*/
+	}*/
 
-	/**
-	 * json encode the returned data
-	 */
+/**
+ * json encode the returned data
+ */
 
 /* Source: https://stackoverflow.com/questions/41626263/codeigniter-php-convert-object-to-json */
+
 $json = json_encode($track_list,JSON_FORCE_OBJECT);
 echo $json;
 
